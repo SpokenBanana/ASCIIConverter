@@ -4,10 +4,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class ASCIIPic {
-    String intense = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"`\'.";
+    String intense = "$@B%8&WM#*oahkbdpqwmZO0QXULCJYzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"`\'.";
 
     public static void main(String[] args) {
         ASCIIPic p = new ASCIIPic();
@@ -83,11 +84,24 @@ public class ASCIIPic {
             }
         }
 
-        for (char[] i : pix)
-        {
-            for (char j : i)
-                System.out.print(j);
-            System.out.println("");
+        //for (char[] i : pix)
+        //{
+        //    for (char j : i)
+        //        System.out.print(j);
+        //    System.out.println("");
+        //}
+        try {
+            PrintWriter writer = new PrintWriter("out.txt");
+             for (char[] i : pix)
+            {
+                for (char j : i)
+                    writer.print(j);
+                writer.println("");
+            }
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
     }
 }
